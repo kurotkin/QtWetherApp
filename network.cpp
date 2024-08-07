@@ -5,7 +5,8 @@ Network::Network(QObject *parent): QObject{parent}
 
 void Network::httpConnect(){
 
-    qDebug()<<QSslSocket::
+    qDebug() << QSslSocket::supportsSsl() << QSslSocket::sslLibraryBuildVersionString() << QSslSocket::sslLibraryVersionString();
+
 
     manager = new QNetworkAccessManager();
 

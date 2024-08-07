@@ -9,16 +9,10 @@ Window {
 
     ListView {
         anchors.fill: parent
-
-        contentWidth: 320
-        flickableDirection: Flickable.AutoFlickDirection
-
-        model: ListModel {
-            id: listModel
-        }
-        delegate: Row {
-            Text { text: '<b>Name:</b> ' + name; width: 160 }
-            Text { text: '<b>Number:</b> ' + number; width: 160 }
+        model: _model
+        delegate: ListItem {
+            width: parent.width
+            text: _model.contacts[index]
         }
     }
 
