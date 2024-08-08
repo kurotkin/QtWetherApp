@@ -3,27 +3,26 @@
 
 #include <QAbstractListModel>
 #include <QObject>
+#include <hourly.h>
 
 class ListItemModel: public QAbstractListModel
 {
     Q_OBJECT
-
-    Q_PROPERTY(QList<QString> contacts READ contacts WRITE setContacts NOTIFY contactsChanged FINAL)
+    Q_PROPERTY(QList<Hourly *> hourlyWeater READ getHourlyWeater WRITE setHourlyWeater NOTIFY weaterChanged FINAL)
 
 public:
     explicit ListItemModel(QObject *parent = nullptr);
-    QList<QString> contacts() const;
-    void setContacts(const QList<QString> &newContacts);
+    QList<Hourly> getHourlyWeater() const;
+    void setHourlyWeater(QList<Hourly> newHourlyWeater);
 
-    QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
 signals:
-    void contactsChanged();
+    void weaterChanged();
 
 private:
-    QList <QString> m_contacts;
+    QList<Hourly> m_hourlyWeater;
 
 };
 

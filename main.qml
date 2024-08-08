@@ -12,7 +12,7 @@ Window {
         model: _model
         delegate: ListItem {
             width: parent.width
-            text: _model.contacts[index]
+            text: _model.hourlyWeater[index].timeLine
         }
     }
 

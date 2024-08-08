@@ -1,36 +1,28 @@
 #include "listitemmodel.h"
 
-ListItemModel::ListItemModel(QObject *parent) : QAbstractListModel{parent}
-{
-    m_contacts.append("Jack London");
-   m_contacts.append("Jack London");
-m_contacts.append("Jack London");
+ListItemModel::ListItemModel(QObject *parent) : QAbstractListModel{parent} {
+    //m_hourlyWeater.append(new Hourly(QString("6464"), QString("66666"), QString("677777")));
+
 }
 
-QList<QString> ListItemModel::contacts() const
+QList<Hourly> ListItemModel::getHourlyWeater() const
 {
-    return m_contacts;
+    return m_hourlyWeater;
 }
 
 int ListItemModel::rowCount(const QModelIndex &parent) const
 {
-    return m_contacts.size();
+    return m_hourlyWeater.size();
 }
 
-void ListItemModel::setContacts(const QList<QString> &newContacts)
+void ListItemModel::setHourlyWeater(QList<Hourly> newHourlyWeater)
 {
-    if (m_contacts == newContacts)
-        return;
-    m_contacts = newContacts;
-    emit contactsChanged();
+    // if (m_hourlyWeater == newHourlyWeater)
+    //     return;
+    m_hourlyWeater = newHourlyWeater;
+    emit weaterChanged();
 }
 
-QHash<int, QByteArray> ListItemModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-
-    return roles;
-}
 
 QVariant ListItemModel::data(const QModelIndex &index, int role) const
 {

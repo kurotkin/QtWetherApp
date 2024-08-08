@@ -24,15 +24,13 @@ int main(int argc, char *argv[])
                 QCoreApplication::exit(-1);
         },
         Qt::QueuedConnection);
-    engine.load(url);
-
 
     engine.rootContext()->setContextProperty("_model", &model);
+    engine.load(url);
 
 
     Network *net = new Network();
     net->httpConnect();
-
 
 
     return app.exec();

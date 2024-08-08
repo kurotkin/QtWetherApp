@@ -15,7 +15,7 @@ Rectangle {
         text: "Width: " + root.width + "\nHeight: " + root.height
         font.bold: true
         font.italic: true
-        font.pointSize: 13//"Button"
+        font.pointSize: 13
         anchors.centerIn: parent
     }
 
